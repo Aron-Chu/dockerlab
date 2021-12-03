@@ -21,7 +21,7 @@ services:
               source: nodered-vol
               target: /data
         environment:
-            - INFLUXDB_TOKEN=arontoken
+            - INFLUXDB_TOKEN=[REPLACE]
     influxdb:
         container_name: influxdb
         image: registry.gitlab.com/arondb/influxdb:latest
@@ -33,11 +33,11 @@ services:
               target: /var/lib/influxdb2
         environment:
             - DOCKER_INFLUXDB_INIT_MODE=setup
-            - DOCKER_INFLUXDB_INIT_USERNAME=aron
-            - DOCKER_INFLUXDB_INIT_PASSWORD=mommy123
-            - DOCKER_INFLUXDB_INIT_ORG=aron
-            - DOCKER_INFLUXDB_INIT_BUCKET=aronbucket
-            - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=arontoken
+            - DOCKER_INFLUXDB_INIT_USERNAME=[REPLACE]
+            - DOCKER_INFLUXDB_INIT_PASSWORD=[REPLACE]
+            - DOCKER_INFLUXDB_INIT_ORG=[REPLACE]
+            - DOCKER_INFLUXDB_INIT_BUCKET=[REPLACE]
+            - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=[REPLACE]
     grafana:
         container_name: grafana
         image: registry.gitlab.com/arondb/grafana:latest
@@ -52,12 +52,12 @@ services:
               source: grafana-vol
               target: /var/lib/grafana
         environment:
-            - GF_SECURITY_ADMIN_USER=aron
-            - GF_SECURITY_ADMIN_PASSWORD=mommy123
-            - INFLUXDB_TOKEN=arontoken
-            - POSTGRES_USER=aron
-            - POSTGRES_DB=arondb
-            - POSTGRES_PASSWORD=aron
+            - GF_SECURITY_ADMIN_USER=[REPLACE]
+            - GF_SECURITY_ADMIN_PASSWORD=[REPLACE]
+            - INFLUXDB_TOKEN=[REPLACE]
+            - POSTGRES_USER=[REPLACE]
+            - POSTGRES_DB=[REPLACE]
+            - POSTGRES_PASSWORD=[REPLACE]
     postgres:
         container_name: postgres
         image: registry.gitlab.com/arondb/postgres:latest
@@ -68,9 +68,9 @@ services:
             source: postgres-vol
             target: /var/lib/postgresql/data/
         environment:
-          - POSTGRES_USER=aron
-          - POSTGRES_PASSWORD=aron
-          - POSTGRES_DB=arondb
+          - POSTGRES_USER=[REPLACE]
+          - POSTGRES_PASSWORD=[REPLACE]
+          - POSTGRES_DB=[REPLACE]
     postgrest:
         container_name: postgrest
         image: postgrest/postgrest
@@ -78,8 +78,8 @@ services:
             - backend
             - db
         environment:
-          - PGRST_DB_URI=postgres://aron:aron@postgres:5432/arondb
-          - PGRST_DB_ANON_ROLE=aron
+          - PGRST_DB_URI=postgres://U:P@postgres:5432/arondb
+          - PGRST_DB_ANON_ROLE=[REPLACE]
           - PGRST_DB_SCHEMA=public
     # wireguard:
     #     image: ghcr.io/linuxserver/wireguard
