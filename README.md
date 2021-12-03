@@ -15,6 +15,11 @@ A tutorial project based on the https://morethancertified.com/ more than certifi
 - Commands to mount your volumes
 - Knowing what to put for your environment presets like mode
 - Using a vpn for security
+# Things I want to learn more about
+- How to make the python script and utilize node-red 
+- Make full use of GitLab on my own projects
+- Learn more bash scripting
+- Container orchestration tools like Kubernetes
 
 #Demo
 ![](ss/gitlab.png)
